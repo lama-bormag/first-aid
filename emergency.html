@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الطوارئ | الإسعافات الأولية</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f8f7;
+            color: #1f2933;
+        }
+
+        header {
+            background: #0f766e;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 0 8px;
+        }
+
+        header p {
+            margin: 0;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #0f766e;
+            margin: 0 12px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .emergency-box {
+            background: #fff;
+            border-radius: 18px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 25px;
+        }
+
+        .emergency-box h2 {
+            color: #b91c1c;
+            margin-top: 0;
+        }
+
+        .number {
+            display: inline-block;
+            background: #b91c1c;
+            color: white;
+            padding: 14px 30px;
+            border-radius: 12px;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 10px;
+            text-decoration: none;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #0f766e;
+            margin-top: 0;
+        }
+
+        .card p {
+            line-height: 1.8;
+        }
+
+        .warning {
+            background: #fff7ed;
+            border-right: 5px solid #f97316;
+            padding: 18px;
+            border-radius: 10px;
+            margin-top: 25px;
+            line-height: 1.8;
+        }
+
+        footer {
+            margin-top: 40px;
+            background: #0f766e;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                display: inline-block;
+                margin: 7px;
+            }
+
+            .emergency-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🚨 قسم الطوارئ</h1>
+    <p>معلومات مهمة للتصرف السريع في حالات الطوارئ</p>
+</header>
+
+<nav>
+    <a href="index.html">الرئيسية</a>
+    <a href="firstaid.html">الإسعافات الأولية</a>
+    <a href="emergency.html">الطوارئ</a>
+    <a href="about.html">عن المشروع</a>
+</nav>
+
+<main class="container">
+
+    <section class="emergency-box">
+        <h2>في حالة الطوارئ</h2>
+        <p>
+            إذا كانت الحالة خطيرة أو تهدد الحياة، يجب طلب المساعدة الطبية
+            فورًا وعدم تأخير طلب الطوارئ.
+        </p>
+
+        <a class="number" href="tel:997">
+            🚑 الهلال الأحمر 997
+        </a>
+    </section>
+
+    <section class="cards">
+
+        <div class="card">
+            <h3>🩸 نزيف شديد</h3>
+            <p>
+                اضغطي مباشرة على مكان النزيف باستخدام قطعة قماش أو شاش نظيف،
+                واطلبي المساعدة الطبية إذا كان النزيف شديدًا أو مستمرًا.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🔥 حروق</h3>
+            <p>
+                أبعدي المصاب عن مصدر الحرارة، وبرّدي المنطقة بالماء الجاري
+                الفاتر أو البارد المعتدل. لا تضعي الثلج مباشرة على الحرق.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>😵 فقدان الوعي</h3>
+            <p>
+                تأكدي من سلامة المكان، وتحققي من استجابة المصاب وتنفسه،
+                واطلبي المساعدة الطبية عند الحاجة.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🫁 صعوبة التنفس</h3>
+            <p>
+                ساعدي المصاب على الجلوس في وضع مريح، واطلبي المساعدة الطبية
+                فورًا إذا كانت صعوبة التنفس شديدة أو مفاجئة.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🤕 إصابة أو سقوط</h3>
+            <p>
+                لا تحركي المصاب دون حاجة، خصوصًا إذا كان هناك اشتباه بإصابة
+                في الرأس أو الرقبة أو الظهر، واطلبي المساعدة عند الضرورة.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>⚡ صدمة كهربائية</h3>
+            <p>
+                لا تلمسي المصاب قبل فصل مصدر الكهرباء بأمان، ثم اطلبي
+                المساعدة الطبية إذا كانت الإصابة تستدعي ذلك.
+            </p>
+        </div>
+
+    </section>
+
+    <div class="warning">
+        <strong>⚠️ تنبيه:</strong>
+        هذه الصفحة للتوعية والإرشاد العام ولا تغني عن التقييم الطبي أو
+        خدمات الطوارئ. في الحالات الخطيرة، تواصلي مع الجهات المختصة فورًا.
+    </div>
+
+</main>
+
+<footer>
+    <p>منصة الإسعافات الأولية | داخل الكلية التقنية</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
