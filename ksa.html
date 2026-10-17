@@ -3,93 +3,123 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KSA</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KSA | وطن المجد</title>
 <style>
-body {
-    margin: 0;
-    background: #03140c;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    overflow: hidden;
+*{box-sizing:border-box}
+body{
+margin:0;background:#020b08;color:white;
+font-family:Tahoma,Arial,sans-serif;
+overflow:hidden;min-height:100vh
 }
-canvas {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
+canvas{position:fixed;inset:0;width:100%;height:100%}
+main{
+position:relative;z-index:1;min-height:100vh;
+display:flex;flex-direction:column;
+align-items:center;justify-content:center;
+text-align:center;padding:20px
 }
-main {
-    position: relative;
-    z-index: 1;
-    padding: 20vh 15px 0;
+.tag{color:#aaffbd;letter-spacing:5px;font-size:12px}
+h1{
+font-size:clamp(70px,18vw,130px);
+color:#65ff91;margin:20px 0 0;
+text-shadow:0 0 20px #00ff66,0 0 60px #00ff66;
+animation:intro 2s ease
 }
-h1 {
-    color: #43ff80;
-    font-size: 80px;
-    text-shadow: 0 0 25px #00ff66;
+.sub{color:#e8d59a;letter-spacing:3px}
+#lyric{
+margin-top:35px;min-height:90px;
+font-size:clamp(24px,6vw,42px);
+font-weight:bold;color:white;
+text-shadow:0 0 20px #39ff78;
+opacity:0;transform:translateY(20px);
+transition:1s
 }
-p {
-    font-size: 28px;
-    animation: glow 2s infinite alternate;
+#lyric.show{opacity:1;transform:translateY(0)}
+#lyric.gold{color:#ffe7a3;text-shadow:0 0 25px #ffc94d}
+button{
+margin-top:20px;padding:13px 27px;
+border:1px solid #65ff91;border-radius:30px;
+background:#073a20;color:white;font-size:16px;
+cursor:pointer
 }
-button {
-    padding: 14px 25px;
-    border-radius: 25px;
-    border: 1px solid #43ff80;
-    background: #064421;
-    color: white;
-    font-size: 18px;
+button:hover{box-shadow:0 0 25px #00ff66}
+footer{
+position:absolute;bottom:20px;
+font-size:11px;letter-spacing:3px;color:#75a989
 }
-@keyframes glow {
-    from { opacity: .5; }
-    to { opacity: 1; }
+@keyframes intro{
+from{opacity:0;transform:scale(1.5);filter:blur(10px)}
+to{opacity:1;transform:scale(1);filter:blur(0)}
 }
 </style>
 </head>
 <body>
 <canvas id="matrix"></canvas>
 <main>
-    <h1>KSA</h1>
-    <p id="message">جنة جنة جنة 🇸🇦</p>
-    <button onclick="next()">ابدأ العرض</button>
+<div class="tag">A CINEMATIC TRIBUTE</div>
+<h1>KSA</h1>
+<div class="sub">المملكة العربية السعودية 🇸🇦</div>
+<div id="lyric">حكاية وطن...</div>
+<button onclick="start()">▶ ابدأ النهاية</button>
+<footer>MADE WITH PRIDE · SAUDI ARABIA</footer>
 </main>
 <script>
-const canvas = document.getElementById("matrix");
-const ctx = canvas.getContext("2d");
-let drops = [];
-function resize() {
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-    drops = Array(Math.ceil(innerWidth / 18)).fill(0);
+const c=document.getElementById("matrix");
+const ctx=c.getContext("2d");
+let drops=[];
+function resize(){
+c.width=innerWidth;c.height=innerHeight;
+drops=Array(Math.ceil(c.width/18)).fill(0);
 }
 resize();
-window.addEventListener("resize", resize);
-setInterval(() => {
-    ctx.fillStyle = "rgba(3,20,12,.15)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
-    ctx.fillStyle = "#43ff80";
-    ctx.font = "15px monospace";
-    drops.forEach((y,i) => {
-        ctx.fillText(Math.random() > .5 ? "1" : "0",i*18,y*18);
-        drops[i] = y*18 > canvas.height && Math.random() > .97 ? 0 : y+1;
-    });
-},50);
+window.addEventListener("resize",resize);
+setInterval(()=>{
+ctx.fillStyle="rgba(2,11,8,.13)";
+ctx.fillRect(0,0,c.width,c.height);
+ctx.fillStyle="#28ff75";
+ctx.font="15px monospace";
+const chars="101010{}[]<>KSA";
+drops.forEach((y,i)=>{
+ctx.fillText(chars[Math.floor(Math.random()*chars.length)],i*18,y*18);
+drops[i]=y*18>c.height&&Math.random()>.97?0:y+1;
+});
+},45);
 
-const lines = [
-    "جنة جنة جنة",
-    "والله يا وطنا",
-    "يا وطن يا حبيب",
-    "يا أبو تراب طيب",
-    "حتى نارك جنة",
-    "حتى نارك جنة",
-    "جنة جنة جنة",
-    "والله يا السعودية جنة 🇸🇦"
+const words=[
+"جنة جنة جنة",
+"والله يا وطنا",
+"يا وطن يا حبيب",
+"يا أبو تراب طيب",
+"حتى نارك جنة",
+"حتى نارك جنة",
+"جنة جنة جنة",
+"والله يا السعودية جنة"
 ];
-let i = 0;
-function next() {
-    document.getElementById("message").textContent = lines[i];
-    i = (i+1) % lines.length;
+let timer;
+function start(){
+clearInterval(timer);
+let i=0;
+const el=document.getElementById("lyric");
+el.className="";
+el.textContent="استعدوا للنهاية...";
+setTimeout(()=>{
+el.classList.add("show");
+timer=setInterval(()=>{
+if(i>=words.length){
+clearInterval(timer);
+el.className="gold show";
+el.textContent="السعودية... عز وفخر 🇸🇦";
+return;
+}
+el.className=""; 
+setTimeout(()=>{
+el.textContent=words[i];
+el.className="show"+(i===7?" gold":"");
+i++;
+},350);
+},2200);
+},500);
 }
 </script>
 </body>
